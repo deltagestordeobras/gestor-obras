@@ -1,4 +1,2 @@
-﻿import sys
-import os
-sys.path.insert(0, os.path.dirname(__file__))
-from app.main import *
+﻿# Este arquivo existe apenas para compatibilidade.
+# O sistema roda em app/main.py
