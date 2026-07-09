@@ -1,0 +1,3 @@
+STATUS_PENDENTE = "Pendente"
+STATUS_PAGO = "Pago"
+STATUS_FECHADO = "Fechada"

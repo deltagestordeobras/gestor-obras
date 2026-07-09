@@ -1,0 +1,8 @@
+.streamlit/secrets.toml
+data/*.db
+backups_bancos_antigos/
+dist/
+build/
+__pycache__/
+*.pyc
+.venv/

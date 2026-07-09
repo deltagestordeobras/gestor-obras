@@ -1,0 +1,7 @@
+COL_ID = "ID"
+COL_OBRA = "Obra"
+COL_STATUS = "Status"
+COL_VALOR = "Valor"
+COL_DATA_PAGTO = "Data Pagto"
+COL_ETAPA = "Etapa"
+COL_NOTA_ID = "NotaID"
