@@ -77,7 +77,7 @@ def _exibir_resultado_orcamento_tecnico(render):
     materiais_fallback = render.get("materiais_fallback", [])
     if materiais_fallback:
         st.warning(
-            f"⚠️ {len(materiais_fallback)} material(ais) sem preço cadastrado usaram "
+            f"âš ï¸ {len(materiais_fallback)} material(ais) sem preço cadastrado usaram "
             f"estimativas: {', '.join(materiais_fallback[:5])}. "
             "Cadastre os preços em Configurações para maior precisão."
         )
@@ -155,14 +155,14 @@ def tela_orcamento(obra):
             st.rerun()
         return
 
-    st.title("📐 Orçamento Técnico da Obra")
+    st.title("ðŸ“ Orçamento Técnico da Obra")
 
     aba_estimativa, aba_tecnico, aba_calcular_obra = st.tabs(
-        ["📊 Orçamento por Estimativa", "📐 Orçamento Técnico (Projeto)", "Orçamento Completo"]
+        ["ðŸ“Š Orçamento por Estimativa", "ðŸ“ Orçamento Técnico (Projeto)", "Orçamento Completo"]
     )
 
     with aba_estimativa:
-        st.subheader("1️⃣ Dados gerais da obra")
+        st.subheader("1ï¸âƒ£ Dados gerais da obra")
 
         col1, col2, col3 = st.columns(3)
 
@@ -181,7 +181,7 @@ def tela_orcamento(obra):
             laje = st.selectbox("Tipo de laje", ["Treliçada", "Maciça"])
 
         st.divider()
-        st.subheader("2️⃣ Ambientes da casa")
+        st.subheader("2ï¸âƒ£ Ambientes da casa")
 
         colA, colB, colC = st.columns(3)
 
@@ -198,7 +198,7 @@ def tela_orcamento(obra):
             lavanderia = st.number_input("Lavanderia", 0, 2, 1)
 
         st.divider()
-        st.subheader("3️⃣ Tipo de acabamento")
+        st.subheader("3ï¸âƒ£ Tipo de acabamento")
 
         colD, colF = st.columns(2)
 
@@ -209,7 +209,7 @@ def tela_orcamento(obra):
             revestimento = st.selectbox("Revestimento", ["Cerâmico", "Porcelanato"])
 
         st.divider()
-        st.subheader("⚙️ Parâmetros da estimativa")
+        st.subheader("âš™ï¸ Parâmetros da estimativa")
 
         if "parametros_estimativa" not in st.session_state:
             st.session_state.parametros_estimativa = pd.DataFrame(
@@ -264,7 +264,7 @@ def tela_orcamento(obra):
 
         st.divider()
 
-        if st.button("📊 Gerar estimativa"):
+        if st.button("ðŸ“Š Gerar estimativa"):
             area = area_total
             custo_m2 = get_param("Base m²")
             custo_m2 += get_param(tipo_obra)
@@ -282,7 +282,7 @@ def tela_orcamento(obra):
             c1.metric("Material", f"R$ {custo_material:,.2f}")
             c2.metric("Mão de obra", f"R$ {custo_mao_obra:,.2f}")
             c3.metric("Custo total", f"R$ {custo_total:,.2f}")
-            st.metric("💰 Custo por m²", f"R$ {custo_m2:,.2f}")
+            st.metric("ðŸ’° Custo por m²", f"R$ {custo_m2:,.2f}")
 
     with aba_tecnico:
         mapa_etapas = MAPA_ETAPAS
@@ -328,7 +328,7 @@ def tela_orcamento(obra):
 
         with col_main:
             with st.expander("1. Implantação", expanded=True):
-                st.subheader("🏗️ Dados da Obra")
+                st.subheader("ðŸ—ï¸ Dados da Obra")
 
                 c1, c2 = st.columns(2)
 
@@ -373,7 +373,7 @@ def tela_orcamento(obra):
 
             quantidades_servicos = {}
 
-            with st.expander("📊 Quantidades de Serviços", expanded=True):
+            with st.expander("ðŸ“Š Quantidades de Serviços", expanded=True):
                 servicos = [
                     row["Serviço"]
                     for _, row in df_mao.iterrows()
@@ -884,7 +884,7 @@ def tela_orcamento(obra):
                         key="loucas_tanques"
                     )
 
-            gerar = st.button("🚀 Gerar Orçamento", use_container_width=True)
+            gerar = st.button("ðŸš€ Gerar Orçamento", use_container_width=True)
 
             if gerar and area_total > 0:
                 quantitativos_estruturais_vazios = (
@@ -1095,13 +1095,13 @@ def tela_orcamento(obra):
                     st.rerun()
 
         with col_side:
-            st.markdown("### 📊 Resumo")
+            st.markdown("### ðŸ“Š Resumo")
             st.metric("Área", f"{area_total} m²")
             st.metric("Cobertura", f"{area_cobertura} m²")
 
     with aba_calcular_obra:
         st.divider()
-        st.subheader("🧠 Orçamento completo da obra")
+        st.subheader("ðŸ§  Orçamento completo da obra")
 
         col1, col2 = st.columns(2)
 
@@ -1112,11 +1112,11 @@ def tela_orcamento(obra):
             margem = st.slider("Margem de lucro (%)", 0, 100, 25)
 
         tipo_obra = st.selectbox(
-            "🏗 Tipo de obra",
+            "ðŸ— Tipo de obra",
             ["Casa", "Prédio", "Galpão"]
         )
 
-        if st.button("🚀 Calcular obra completa", use_container_width=True):
+        if st.button("ðŸš€ Calcular obra completa", use_container_width=True):
             if "tabela_composicao" not in st.session_state:
                 st.error("Cadastre a composição primeiro")
                 return
@@ -1148,15 +1148,15 @@ def tela_orcamento(obra):
 
             c1, c2, c3, c4 = st.columns(4)
 
-            c1.metric("💰 Custo total", f"R$ {total:,.2f}")
-            c2.metric("📊 Custo/m²", f"R$ {m2:,.2f}")
-            c3.metric("💵 Venda sugerida", f"R$ {venda:,.2f}")
-            c4.metric("📈 Lucro", f"R$ {lucro:,.2f}")
+            c1.metric("ðŸ’° Custo total", f"R$ {total:,.2f}")
+            c2.metric("ðŸ“Š Custo/m²", f"R$ {m2:,.2f}")
+            c3.metric("ðŸ’µ Venda sugerida", f"R$ {venda:,.2f}")
+            c4.metric("ðŸ“ˆ Lucro", f"R$ {lucro:,.2f}")
 
             st.divider()
             c5, c6 = st.columns(2)
-            c5.metric("🧱 % Material", f"{p_mat*100:.1f}%")
-            c6.metric("👷 % Mão de obra", f"{p_mo*100:.1f}%")
+            c5.metric("ðŸ§± % Material", f"{p_mat*100:.1f}%")
+            c6.metric("ðŸ‘· % Mão de obra", f"{p_mo*100:.1f}%")
 
             fig = px.pie(
                 names=["Material", "Mão de obra"],
@@ -1167,7 +1167,7 @@ def tela_orcamento(obra):
             st.plotly_chart(fig, use_container_width=True, key="grafico_custos_obra")
 
             st.divider()
-            st.subheader("🏆 Materiais mais caros")
+            st.subheader("ðŸ† Materiais mais caros")
 
             top = mat.sort_values("Custo", ascending=False).head(10)
             st.dataframe(top, use_container_width=True)
@@ -1175,19 +1175,19 @@ def tela_orcamento(obra):
             if not mat.empty:
                 maior = mat.iloc[0]
                 st.warning(
-                    f"⚠️ Maior custo: {maior['Material']} → R$ {maior['Custo']:,.2f}"
+                    f"âš ï¸ Maior custo: {maior['Material']} â†’ R$ {maior['Custo']:,.2f}"
                 )
 
             st.divider()
-            st.subheader("📦 Materiais necessários")
+            st.subheader("ðŸ“¦ Materiais necessários")
             st.dataframe(mat, use_container_width=True)
 
-            st.subheader("👷 Mão de obra")
+            st.subheader("ðŸ‘· Mão de obra")
             st.dataframe(mo, use_container_width=True)
 
             st.divider()
 
-            if st.button("💾 Salvar orçamento"):
+            if st.button("ðŸ’¾ Salvar orçamento"):
                 st.session_state["ultimo_orcamento"] = {
                     "obra": obra,
                     "area": area,
