@@ -12,45 +12,6 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-"""
-Cole este trecho no início do main.py, logo após o st.set_page_config().
-Ele injeta o manifest e o service worker no HTML do Streamlit.
-"""
-
-import streamlit as st
-
-def injetar_pwa():
-    st.markdown("""
-    <link rel="manifest" href="/app/static/manifest.json">
-    <meta name="theme-color" content="#0f172a">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Delta">
-    <link rel="apple-touch-icon" href="/app/static/icons/icon-192.png">
-
-    <script>
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-            navigator.serviceWorker.register('/app/static/service-worker.js')
-                .then(function(reg) {
-                    console.log('Delta PWA: Service Worker registrado', reg.scope);
-                })
-                .catch(function(err) {
-                    console.log('Delta PWA: Erro no Service Worker', err);
-                });
-        });
-    }
-    </script>
-    """, unsafe_allow_html=True)
-st.markdown(
-    """
-    <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#0f172a">
-    """,
-    unsafe_allow_html=True,
-)
-
 from app.administracao import tela_administracao
 from app.auditoria import tela_auditoria
 from app.backup import tela_backup
