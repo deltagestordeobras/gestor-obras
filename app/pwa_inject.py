@@ -8,9 +8,4 @@ def injetar_pwa():
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="Delta">
     <link rel="apple-touch-icon" href="/app/static/icons/icon-192.png">
-    <script>
-    if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("/app/static/service-worker.js");
-    }
-    </script>
     ''', unsafe_allow_html=True)

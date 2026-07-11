@@ -358,11 +358,132 @@ def aplicar_estilo():
 
     .stButton > button {
         min-height: 38px;
+        border: 1px solid rgba(96, 165, 250, 0.2) !important;
         border-radius: 6px;
-        border-color: var(--delta-border);
+        background: linear-gradient(180deg, rgba(20, 48, 78, 0.78), rgba(14, 37, 62, 0.78)) !important;
+        color: var(--delta-text) !important;
         font-weight: 650;
     }
-    .stButton > button[kind="primary"] { background: #2d7ff9; }
+    .stButton > button:hover,
+    [data-testid="stFormSubmitButton"] button:hover,
+    [data-testid="stDownloadButton"] button:hover {
+        border-color: rgba(34, 211, 238, 0.38) !important;
+        background: rgba(34, 211, 238, 0.11) !important;
+        color: #f8fdff !important;
+    }
+    .stButton > button[kind="primary"],
+    [data-testid="stFormSubmitButton"] button[kind="primary"],
+    [data-testid="stDownloadButton"] button[kind="primary"] {
+        border-color: rgba(103, 232, 249, 0.5) !important;
+        background: linear-gradient(135deg, #1d4ed8, #0284c7 58%, #0891b2) !important;
+        color: #fff !important;
+        box-shadow: 0 8px 18px rgba(8, 145, 178, 0.18);
+    }
+    [data-testid="stFormSubmitButton"] button,
+    [data-testid="stDownloadButton"] button {
+        min-height: 38px;
+        border: 1px solid rgba(96, 165, 250, 0.2) !important;
+        border-radius: 6px;
+        background: linear-gradient(180deg, rgba(20, 48, 78, 0.78), rgba(14, 37, 62, 0.78)) !important;
+        color: var(--delta-text) !important;
+        font-weight: 650;
+    }
+    .stButton > button[kind="primaryFormSubmit"],
+    .stButton > button[kind="primary"],
+    [data-testid="stFormSubmitButton"] button[kind="primaryFormSubmit"],
+    [data-testid="stFormSubmitButton"] button[data-testid="stBaseButton-primaryFormSubmit"],
+    [data-testid="stFormSubmitButton"] button[kind="primary"],
+    [data-testid="stDownloadButton"] button[kind="primary"] {
+        border-color: rgba(103, 232, 249, 0.5) !important;
+        background: linear-gradient(135deg, #1d4ed8, #0284c7 58%, #0891b2) !important;
+        color: #fff !important;
+        box-shadow: 0 8px 18px rgba(8, 145, 178, 0.18);
+    }
+
+    /* Widgets Streamlit/BaseWeb no tema DELTA. */
+    [data-testid="stTextInput"] input,
+    [data-testid="stNumberInput"] input,
+    [data-testid="stDateInput"] input,
+    [data-testid="stTimeInput"] input,
+    [data-testid="stTextArea"] textarea,
+    [data-baseweb="input"] input,
+    [data-baseweb="textarea"] textarea {
+        border: 1px solid rgba(98, 168, 255, 0.24) !important;
+        border-radius: 6px !important;
+        background: #17212d !important;
+        color: var(--delta-text) !important;
+        caret-color: var(--delta-blue) !important;
+        box-shadow: none !important;
+    }
+    [data-testid="stTextInput"] input:focus,
+    [data-testid="stNumberInput"] input:focus,
+    [data-testid="stDateInput"] input:focus,
+    [data-testid="stTimeInput"] input:focus,
+    [data-testid="stTextArea"] textarea:focus,
+    [data-baseweb="input"] input:focus,
+    [data-baseweb="textarea"] textarea:focus {
+        border-color: rgba(34, 211, 238, 0.58) !important;
+        box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.18) !important;
+    }
+    [data-testid="stTextInput"] input::placeholder,
+    [data-testid="stNumberInput"] input::placeholder,
+    [data-testid="stTextArea"] textarea::placeholder,
+    [data-baseweb="input"] input::placeholder,
+    [data-baseweb="textarea"] textarea::placeholder {
+        color: rgba(238, 243, 248, 0.42) !important;
+    }
+    [data-testid="stSelectbox"] [data-baseweb="select"] > div,
+    [data-testid="stMultiSelect"] [data-baseweb="select"] > div,
+    [data-testid="stDateInput"] [data-baseweb="input"] > div,
+    [data-baseweb="select"] > div {
+        border: 1px solid rgba(98, 168, 255, 0.24) !important;
+        border-radius: 6px !important;
+        background: #17212d !important;
+        color: var(--delta-text) !important;
+        box-shadow: none !important;
+    }
+    [data-testid="stSelectbox"] [data-baseweb="select"] > div:hover,
+    [data-testid="stMultiSelect"] [data-baseweb="select"] > div:hover,
+    [data-baseweb="select"] > div:hover {
+        border-color: rgba(34, 211, 238, 0.46) !important;
+    }
+    [data-baseweb="select"] span,
+    [data-baseweb="select"] input,
+    [data-baseweb="select"] svg,
+    [data-baseweb="input"] svg {
+        color: var(--delta-text) !important;
+        fill: var(--delta-text) !important;
+    }
+    [data-baseweb="tag"] {
+        border: 1px solid rgba(98, 168, 255, 0.26) !important;
+        background: rgba(98, 168, 255, 0.14) !important;
+        color: var(--delta-text) !important;
+    }
+    [data-baseweb="popover"],
+    [data-baseweb="menu"],
+    [role="listbox"] {
+        border: 1px solid rgba(98, 168, 255, 0.22) !important;
+        background: #121923 !important;
+        color: var(--delta-text) !important;
+    }
+    [role="option"],
+    [data-baseweb="menu"] li {
+        background: #121923 !important;
+        color: var(--delta-text) !important;
+    }
+    [role="option"]:hover,
+    [data-baseweb="menu"] li:hover {
+        background: rgba(34, 211, 238, 0.12) !important;
+        color: #f8fdff !important;
+    }
+    label,
+    [data-testid="stWidgetLabel"] p {
+        color: var(--delta-text) !important;
+    }
+    [data-testid="stForm"] {
+        border-color: var(--delta-border) !important;
+        background: rgba(18, 25, 35, 0.52) !important;
+    }
 
     /* Navegacao principal no padrao DELTA Vendas. */
     [data-testid="stSidebar"] {
@@ -552,16 +673,34 @@ def aplicar_estilo():
         min-width: max-content;
         min-height: 38px;
         padding: 7px 8px;
+        border: 1px solid transparent;
         border-radius: 5px 5px 0 0;
+        color: var(--delta-muted) !important;
         font-size: 0.85rem;
         font-weight: 650;
         white-space: nowrap;
     }
     .stTabs [data-baseweb="tab"] p {
         margin: 0;
+        color: inherit !important;
         white-space: nowrap;
     }
-    .stTabs [aria-selected="true"] { background: var(--delta-surface-2); }
+    .stTabs [data-baseweb="tab"]:hover {
+        border-color: rgba(34, 211, 238, 0.24);
+        background: rgba(34, 211, 238, 0.08);
+        color: #eaf8ff !important;
+    }
+    .stTabs [aria-selected="true"] {
+        border-color: rgba(96, 165, 250, 0.34) !important;
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.68), rgba(8, 145, 178, 0.68)) !important;
+        color: #fff !important;
+    }
+    .stTabs [data-baseweb="tab-highlight"] {
+        background-color: var(--delta-blue) !important;
+    }
+    .stTabs [data-baseweb="tab-border"] {
+        background-color: var(--delta-border) !important;
+    }
 
     @media (max-width: 900px) {
         .delta-investor__metrics { grid-template-columns: repeat(2, 1fr); }
@@ -572,16 +711,20 @@ def aplicar_estilo():
     </style>
     """, unsafe_allow_html=True)
 
-    st.markdown("""
-    <link rel="manifest" href="/app/static/manifest.json">
-    <meta name="theme-color" content="#0f172a">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="Delta">
-    <link rel="apple-touch-icon" href="/app/static/icons/icon-192.png">
-    <script>
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/app/static/service-worker.js');
-    }
-    </script>
-    """, unsafe_allow_html=True)
+    st.components.v1.html(
+        """
+        <script>
+        (async () => {
+            if ("serviceWorker" in navigator) {
+                const registrations = await navigator.serviceWorker.getRegistrations();
+                await Promise.all(registrations.map((registration) => registration.unregister()));
+            }
+            if ("caches" in window) {
+                const keys = await caches.keys();
+                await Promise.all(keys.map((key) => caches.delete(key)));
+            }
+        })();
+        </script>
+        """,
+        height=0,
+    )
